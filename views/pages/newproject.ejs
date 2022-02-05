@@ -1,0 +1,46 @@
+
+<head>
+    <title>new project</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    
+
+</head>
+<div class="container">
+    <form action="/create" method="post">
+        <div class="form-group">
+            <label for="nom" class="">Name :</label>
+            <input id="name" name="name" type="text" placeholder="" list="nomlist" class="form-control">
+            <datalist id="nomlist"></datalist>
+        </div>
+        <div class="form-group">
+            <label for="desc">Description :</label>
+            <textarea id="desc" name="desc" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="responsable" class="">Responsible :</label>
+            <input id="responsable" name="responsable" type="text" placeholder="null" list="responsablelist" class="form-control">
+            <datalist id="responsablelist">
+                <option value="CHABI BOUKARI Fawaz"></option>
+                <option value="ODJO Mike"></option>
+                <option value="AMADOU Ruchdane"></option>
+            </datalist>
+        </div>
+        <div class="form-group">
+            <label for="start" class="">Start Date :</label>
+            <input id="start" name="start" type="date" placeholder="Ex : 2021-07-22" list="startlist" class="form-control">
+            <datalist id="startlist"></datalist>
+        </div>
+        <div class="form-group">
+            <label for="echeance" class="">Deadline :</label>
+            <input id="echeance" name="echeance" type="date" placeholder="Ex : 2021-07-22" list="echeancelist" class="form-control">
+            <datalist id="echeancelist"></datalist>
+        </div>
+
+        <div class="modal-footer">
+        
+            <button type="submit">add</button>
+        </div>
+    </form>
+</div>
+
+<%- include('footer.ejs') %>

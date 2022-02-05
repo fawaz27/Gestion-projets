@@ -1,0 +1,77 @@
+<%- include('header.ejs') %>
+    <div class="modal-header">
+        <h4>LOGIN</h4>
+    </div>
+    <% if (message) { %>
+        <div class="alert alert-danger" role="alert">
+        <%= message %>
+      </div>
+        
+        <% } %>
+    <div class="container">
+ <form action="/partners/register" method="post">
+    <div class="modal-body">
+        <div class="card ">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div style=" " class="d-flex justify-content-between">
+                            <div class="form-group">
+                                <label for="input6"></label><input id="input6" name="id" readonly="" placeholder="id" class="form-control form-control-sm">
+                            </div>
+                            <div style=" " class="d-flex align-items-center">
+                                <span class="fa fa-times btn"></span>
+                            </div>
+                        </div>
+                    </div>
+               
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="username"></label><input id="username" name="username" placeholder="username" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group"><label for="others"></label><input id="others" name="others" placeholder="other names" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group"><label for="phone"></label><input id="phone" name="phone" placeholder="phone" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group"><label for="email"></label><input type="email" id="email" name="email" placeholder="email" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group"><label for="password"></label><input type="password" id="password" name="password" placeholder="password" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group"><label for="repassword"></label><input type="password" id="repassword" name="repassword" placeholder="retype password" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="isadmin" name="isadmin">
+                            <label class="form-check-label" for="isadmin">admin</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12"><hr>
+                    </div>
+               
+                </div> 
+            </div>
+        </div>
+    </div>
+
+ 
+
+    <div class="modal-footer">
+        
+        <button type="submit">add</button>
+    </div>
+
+</form>
+</div>
+<%- include('footer.ejs') %>
+ 
