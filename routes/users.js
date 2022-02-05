@@ -38,6 +38,7 @@ router.post('/login', (req, res, next) => {
     failureRedirect : '/partners/login',
     failureFlash : true,
     session :true
+    
 }))
 
 /*

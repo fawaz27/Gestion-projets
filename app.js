@@ -12,19 +12,21 @@ const flash = require('connect-flash');
 const bodyParser =require("body-parser");
 const morgan     = require("morgan");
 const cors = require('cors');
-
+const path = require('path');
+const { dirname } = require('path');
 
 //Routes
-const usersRouter = require('../server/routes/users');
-const partnersRouter = require('../server/routes/partners');
-const projectsRouter = require('../server/routes/projects');
-const tasksRouter = require('../server/routes/tasks');
+ const usersRouter = require(__dirname+'/routes/users');
+ const partnersRouter = require(__dirname+'/routes/partners');
+ const projectsRouter = require(__dirname+'/routes/projects');
+ const tasksRouter = require(__dirname+'/routes/tasks');
 
 
 //Moteur de template 
 app.set('view engine','ejs');
 
-app.use(express.static('/home/chabi/Documents/project/server/views'));
+
+app.use(express.static(__dirname+'/views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 //Middleware
@@ -55,9 +57,9 @@ app.use(function(req, res, next){
   next();
 });
 
-app.use('/partners', usersRouter);
-app.use('/', projectsRouter);
-//app.use('/partners', partnersRouter);
+ app.use('/partners', usersRouter);
+ app.use('/', projectsRouter);
+app.use('/partners', partnersRouter);
 
 require('./config/passport')(passport)
 

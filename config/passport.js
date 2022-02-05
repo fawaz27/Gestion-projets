@@ -29,6 +29,7 @@ module.exports = function (passport){
         loginUser()
         async function loginUser() {
             const client =await db.connect();
+            
             try {
                 
                 db.any("select jsonb_build_object('id',id,'partner',partner) as partners from project.partners")
@@ -45,6 +46,7 @@ module.exports = function (passport){
                             return [{"count":cpt,"id":id}];       
                         }
                     }
+                    
                     return [{"count":cpt,"id":null}];
                 })
                 .then(result=>{
