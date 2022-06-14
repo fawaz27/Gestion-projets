@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 router.get('/', async (req,res)=>{
 
     const result = await listPartners ();
-  
+    
   
     console.log(result[0]);
     
@@ -27,7 +27,7 @@ router.get('/', async (req,res)=>{
     const username=req.body.id;
     const pass=req.body.password;
     const result1 = await findUserbyEmail (mail);
-
+    
     
     console.log(result1[0]);
     

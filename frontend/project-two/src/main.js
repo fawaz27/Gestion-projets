@@ -5,7 +5,20 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHatWizard ,faHouse,faTasks,faChartGantt,faBars, faFolder,faDashboard,faCalendar,faUser} from '@fortawesome/free-solid-svg-icons'
+import { 
+        faHatWizard ,
+        faHouse,
+        faTasks,
+        faChartGantt,
+        faBars, 
+        faFolder,
+        faDashboard,
+        faCalendar,
+        faUser,
+        faBook,
+        faPen,
+        faSitemap
+      } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import VueRouter from 'vue-router'
@@ -13,11 +26,13 @@ import Routes from './Routes'
 import store from './store/store'
 export const bus =new Vue()
 
-library.add(faHatWizard,faHouse,faTasks,faChartGantt,faBars,faFolder,faDashboard,faCalendar,faUser)
+library.add(faHatWizard,faHouse,faTasks,faChartGantt,faBars,faFolder,faDashboard,faCalendar,faUser,faBook,faPen,faSitemap)
 Vue.config.productionTip = false
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VueRouter)
 
+
+f
 const router = new VueRouter({
   routes:Routes,
   mode:'history'

@@ -1,7 +1,7 @@
 <template>
     <div>
-        <new-module></new-module>
-        <h1>Home</h1>
+        <new-module v-on:addnewmodule=" Addnewmodule($event)"></new-module>
+        <h1>{{title}}</h1>
         <div class="d-flex justify-content-between p-2 mb-4">
             <div>
                 <input type="search" v-model="searchKey" id="search " placeholder="Search ...">
@@ -24,12 +24,13 @@
         </div>
         
         <div class="contain">
-            <div class="row">
+            <div class="row" v-if="modules!=[]">
             
-            
-                 <div class="col-md-4 mt-3" v-for="(module,index) in filtre" v-bind:key="index" >
-                    <div >
-                        <div class="card">
+                
+                 <div class="col-md-4 mt-3 " v-for="(module,index) in filtre" v-bind:key="index" >
+                    <router-link :to=GenerateLink(module.module.name) class="cardf">
+                        <div >
+                        <div class="card ">
                         <div class="card-body">
                             <h5 class="card-title" style="  text-transform  : uppercase">{{module.module.name}}</h5>
                             <p class="card-text">
@@ -38,6 +39,8 @@
                         </div>
                         </div>
                     </div>
+                    </router-link>
+                    
                     
                    
                 
@@ -62,14 +65,24 @@ export default{
     name:'home',
     data(){
         return{
+            title:'Home',
             searchKey:'',
             modules:[]
         }
     },
+    
     methods:{
+
        AppelNewModule(){
-           console.log('Tescxcv')
+           
            bus.$emit('callnewmodule',true)
+       },
+       Addnewmodule(data){
+          
+           this.modules.push(data);
+       },
+       GenerateLink(name){
+           return "/"+name
        },
        DateDifference(date){
             var now =new Date();
@@ -94,6 +107,9 @@ export default{
             else if(date.getSeconds()!=now.getSeconds()){
                 return (now.getSeconds()-date.getSeconds())+' seconds';
             }
+            else if(date.getSeconds()==now.getSeconds()){
+                return '0 seconds';
+            }
             
 
        }
@@ -112,6 +128,8 @@ export default{
                 this.modules=res.data
                 console.log(res.data);
                 
+            }).catch(err=>{
+                console.log(err);
             });
     },
     components:{
@@ -139,4 +157,12 @@ export default{
         margin-left: 40px;
         margin-right: 40px;
     }
+    .cardf{
+        color: black;
+        text-decoration: none;
+    }
+    .cardf:hover{
+        text-decoration: none;
+    }
+    
 </style>

@@ -47,3 +47,15 @@ insert into project.depends(id_tasks, id_tasks1, depend) values (1,4,'{"type":"f
 insert into project.depends(id_tasks, id_tasks1, depend) values (5,4,'{"type":"fin-fin"}');
 insert into project.depends(id_tasks, id_tasks1, depend) values (5,3,'{"type":"fin-début"}');
 insert into project.depends(id_tasks, id_tasks1, depend) values (3,4,'{"type":"début-début"}');
+
+
+
+
+
+
+
+
+
+with np (ip) as 
+    (insert into project.projects (project)  values ($1) returning id), 
+        nm as (insert into project.members (id_partners,id_projects) values ($2, (select ip from np)) returning id_projects ) select * from nm;

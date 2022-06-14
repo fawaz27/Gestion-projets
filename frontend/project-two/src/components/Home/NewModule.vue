@@ -69,9 +69,19 @@ export default{
             .post('http://localhost:3000/modules',this.FormData)
             .then( res=>{
                 res;
+                const newmodule={
+                  "id":res.data.data.id,
+                  "module":{
+                    "name":this.FormData.name,
+                  "description":this.FormData.description,
+                  "datecreate":this.FormData.datecreate.toString()
+                  }
+                  
+                }
+                this.$emit('addnewmodule',newmodule);
                 this.showModal=!this.showModal;
                 this.FormData.name='';
-                this.FormData.description;
+                this.FormData.description='';
                 this.FormData.datecreate='';
             })
             .catch( err=>{
