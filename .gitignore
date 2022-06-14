@@ -1,1 +1,3 @@
 backend/Two/.env
+backend/One/node_modules
+backend/Two/node_modules
